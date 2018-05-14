@@ -4,7 +4,7 @@ PRDIFF=$(curl -u $GITHUB_USERNAME:$GITHUB_API_TOKEN \
      -H 'Accept: application/vnd.github.VERSION.diff' \
      https://api.github.com/repos/$TRAVIS_REPO_SLUG/pulls/$TRAVIS_PULL_REQUEST)
 
-LEAKS=(
+RE=(
     "-----BEGIN PRIVATE KEY-----"
     "-----BEGIN RSA PRIVATE KEY-----"
     "-----BEGIN DSA PRIVATE KEY-----"
@@ -15,10 +15,14 @@ LEAKS=(
     "twitter.*['\"][0-9a-zA-Z]{35,44}['\"]"
     "heroku.*[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}"
 )
+LEAKS=()
 
 # iterate diff lines and check for matches
 while read -r line; do
-    for leak in "${LEAKS[@]}"; do
-        [[ $line =~ $leak ]] && echo "leak found" || echo "no leaks"
+    for re in "${RE[@]}"; do
+        [[ $line =~ $re ]] && LEAKS+=$line
     done <<< "$LEAKS"
 done <<< "$PRDIFF"
+
+echo "leaks: "
+echo $LEAKS
