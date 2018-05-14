@@ -31,7 +31,6 @@ while read -r line; do
         # check regex
         if [[ $line =~ $re ]]; then
             LEAKS+=($line)
-            echo ""
             echo "Leak found in ${filename:2}. Offending line: $line"
         fi
     done
