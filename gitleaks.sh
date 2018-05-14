@@ -3,7 +3,6 @@
 PRDIFF=$(curl -u $GITHUB_USERNAME:$GITHUB_API_TOKEN \
      -H 'Accept: application/vnd.github.VERSION.diff' \
      https://api.github.com/repos/$TRAVIS_REPO_SLUG/pulls/$TRAVIS_PULL_REQUEST)
-echo "checking PR #$TRAVIS_PULL_REQUEST from $TRAVIS_REPO_SLUG"
 
 RE=(
     # fork and add/remove whatever you want here
@@ -19,6 +18,8 @@ RE=(
 )
 LEAKS=()
 
+echo "checking PR #$TRAVIS_PULL_REQUEST from $TRAVIS_REPO_SLUG"
+
 # iterate diff lines and check for matches
 while read -r line; do
     # check for file
@@ -29,8 +30,9 @@ while read -r line; do
     for re in "${RE[@]}"; do
         # check regex
         if [[ $line =~ $re ]]; then
-            echo "Leak found in ${filename:2}. Offending line: $line"
             LEAKS+=($line)
+            echo ""
+            echo "Leak found in ${filename:2}. Offending line: $line"
         fi
     done
 done <<< "$PRDIFF"
