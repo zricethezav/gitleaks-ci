@@ -1,6 +1,6 @@
 language: generic
 sudo: required
 script:
-    bash <(curl -s https://raw.githubusercontent.com/zricethezav/gitleaks-ci/master/gitleaks.sh)
+    bash <(curl -s https://raw.githubusercontent.com/zricethezav/gitleaks-ci/develop/gitleaks.sh)
 after_success:
     - echo "success"
