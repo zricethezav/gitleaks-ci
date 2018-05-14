@@ -28,9 +28,11 @@ while read -r line; do
 
     for re in "${RE[@]}"; do
         # check regex
+        echo $re
         if [[ $line =~ $re ]]; then
             echo "Leak found in ${filename:2}. Offending line: $line"
             LEAKS+=($line)
+            echo $LEAKS
         fi
     done
 done <<< "$PRDIFF"
@@ -38,4 +40,6 @@ done <<< "$PRDIFF"
 if [ ! -z "$LEAKS" ]; then
     echo "leaks found, probably shouldn't merge this PR" >&2
     exit 1
+else
+    echo "no leaks found"
 fi
