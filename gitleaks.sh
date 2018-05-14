@@ -21,7 +21,6 @@ LEAKS=()
 # iterate diff lines and check for matches
 while read -r line; do
     # check for file
-    echo $line
     if [[ $line == *"diff --git a"* ]]; then
         filename="${line##* }"
     fi
