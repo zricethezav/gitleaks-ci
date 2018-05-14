@@ -24,4 +24,5 @@ while read -r line; do
     done <<< "$LEAKS"
 done <<< "$PRDIFF"
 
+echo "leaks: "
 echo $LEAKS
