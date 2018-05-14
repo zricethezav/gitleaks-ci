@@ -6,6 +6,7 @@ PRDIFF=$(curl -u $GITHUB_USERNAME:$GITHUB_API_TOKEN \
 echo "checking PR #$TRAVIS_PULL_REQUEST from $TRAVIS_REPO_SLUG"
 
 RE=(
+    # fork and add/remove whatever you want here
     "-----BEGIN PRIVATE KEY-----"
     "-----BEGIN RSA PRIVATE KEY-----"
     "-----BEGIN DSA PRIVATE KEY-----"
@@ -21,6 +22,7 @@ LEAKS=()
 # iterate diff lines and check for matches
 while read -r line; do
     # check for file
+    echo $line
     if [[ $line == *"diff --git a"* ]]; then
         filename="${line##* }"
     fi
