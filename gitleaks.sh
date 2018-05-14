@@ -31,7 +31,6 @@ while read -r line; do
         if [[ $line =~ $re ]]; then
             echo "Leak found in ${filename:2}. Offending line: $line"
             LEAKS+=($line)
-            echo $LEAKS
         fi
     done
 done <<< "$PRDIFF"
