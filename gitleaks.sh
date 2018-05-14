@@ -22,7 +22,6 @@ LEAKS=()
 # iterate diff lines and check for matches
 while read -r line; do
     # check for file
-    echo $line
     if [[ $line == *"diff --git a"* ]]; then
         filename="${line##* }"
     fi
@@ -31,7 +30,12 @@ while read -r line; do
         # check regex
         if [[ $line =~ $re ]]; then
             echo "Leak found in ${filename:2}. Offending line: $line"
+            LEAKS+=($line)
         fi
     done
 done <<< "$PRDIFF"
-echo "Leaks: " $LEAKS
+
+if [ ! -z "$LEAKS" ]; then
+    echo "leaks found, probably shouldn't merge this PR" >&2
+    exit 1
+fi
