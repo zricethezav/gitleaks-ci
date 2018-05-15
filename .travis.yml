@@ -1,6 +1,6 @@
 language: generic
 sudo: required
 script:
-    - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash <(curl -s https://raw.githubusercontent.com/zricethezav/gitleaks-ci/develop/gitleaks.sh); fi'
+    - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash <(curl -s https://raw.githubusercontent.com/zricethezav/gitleaks-ci/master/gitleaks.sh); fi'
 after_success:
     - echo "success"
