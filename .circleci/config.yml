@@ -5,4 +5,4 @@ jobs:
       - image: docker:17.05.0-ce-git
     steps:
       - checkout
-      - run: bash <(curl -s https://raw.githubusercontent.com/zricethezav/gitleaks-ci/develop/gitleaks.sh); 
+      - run: bash <(curl -s https://raw.githubusercontent.com/zricethezav/gitleaks-ci/master/gitleaks.sh)
