@@ -2,7 +2,9 @@ version: 2
 jobs:
   build:
     docker:
-      - image: docker:17.05.0-ce-git
+        - image: ruby:2.4.0
+          environment:
+            - LANG: C.UTF-8
     steps:
       - checkout
-      - run: bash <(curl -s https://raw.githubusercontent.com/zricethezav/gitleaks-ci/develop/gitleaks.sh); 
+      - run: curl https://raw.githubusercontent.com/zricethezav/gitleaks-ci/develop/gitleaks.sh | bash
