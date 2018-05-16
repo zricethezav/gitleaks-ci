@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # give github api a little buffer
-sleep 3
+sleep 10
 
 PR=""
 REPO_SLUG=""
