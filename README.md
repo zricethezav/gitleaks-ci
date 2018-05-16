@@ -1,4 +1,7 @@
-# Gitleaks-CI
+<p align="center">
+  <img alt="gitleaks-ci" src="https://raw.githubusercontent.com/zricethezav/gifs/master/gitleaks-ci.png" height="140" />
+</p>
+
 ## Audit PRs on github before you hit that merge button
 ### What is?
 [Gitleaks](https://github.com/zricethezav/gitleaks) is great for doing thorough audits on repos, organizations, and/or users but 
@@ -14,10 +17,18 @@ bash <(curl -s https://raw.githubusercontent.com/zricethezav/gitleaks-ci/master/
 
 ---
 
-Here's a video demonstrating what this is all about:
-TODO MAKE THAT YOUTUBE VIDEO
+### Accessing Private Repos
+Gitleaks-CI requires the owner's credentials to access private repos
+#### Travis
+If you are using Travis read [this](https://docs.travis-ci.com/user/environment-variables/#Defining-encrypted-variables-in-.travis.yml) to add `GITHUB_USERNAME` and `GITHUB_API_TOKEN` environment variables.
+
+#### CircleCI
+TODO
+
+#### Jenkins
+TODO
 
 
-#### If you find leaks in your PR
+### If you find leaks in your PR
 Please read the [Github article on removing sensitive data from a repository](https://help.github.com/articles/removing-sensitive-data-from-a-repository/) to remove the sensitive information from your history.
 
