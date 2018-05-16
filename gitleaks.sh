@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# give github api a little buffer
+sleep 3
+
 PR=""
 REPO_SLUG=""
 if [ ! -z $TRAVIS_PULL_REQUEST ]; then
