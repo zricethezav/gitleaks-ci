@@ -15,6 +15,21 @@ bash <(curl -s https://raw.githubusercontent.com/zricethezav/gitleaks-ci/master/
 ```
 **You should fork this repo and use the `gitleaks.sh` script you own rather than assuming my trust.**
 
+#### PR logs
+Sample PR with a leak [here](https://github.com/zricethezav/gitleaks-ci/pull/15)
+##### CircleCI
+
+<p align="left">
+  <img alt="gitleaks-ci" src="https://raw.githubusercontent.com/zricethezav/gifs/master/circle_fail.png" />
+</p>
+
+##### Travis
+
+<p align="left">
+  <img alt="gitleaks-ci" src="https://raw.githubusercontent.com/zricethezav/gifs/master/travis_fail.png" height="240" />
+</p>
+
+
 ---
 
 ### Accessing Private Repos
