@@ -1,15 +1,12 @@
 #!/bin/bash
 
-# give github api a little buffer
-sleep 10
-
 PR=""
 REPO_SLUG=""
 if [ ! -z $TRAVIS_PULL_REQUEST ]; then
     PR=$TRAVIS_PULL_REQUEST
     REPO_SLUG=$TRAVIS_REPO_SLUG
 else [ ! -z $CIRCLE_PR_NUMBER ]
-    PR="${CIRCLE_PULL_REQUEST:${#CIRCLE_PULL_REQUEST}-1:1}"
+    PR=${CIRCLE_PULL_REQUEST##*/}
     REPO_SLUG=$CIRCLE_PROJECT_USERNAME"/"$CIRCLE_PROJECT_REPONAME
 fi
 
