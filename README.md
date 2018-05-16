@@ -5,7 +5,10 @@
 ## Audit PRs on github before you hit that merge button
 ### What is?
 [Gitleaks](https://github.com/zricethezav/gitleaks) is great for doing thorough audits on repos, organizations, and/or users but 
-not so great for hooking into CI pipelines. **Gitleaks-CI** is 50 lines of bash code that checks your PRs for secrets you probably shouldn't be commiting 
+not so great for hooking into CI pipelines. **Gitleaks-CI** is 50 lines of bash code that checks your PRs for secrets you probably shouldn't be commiting. Gitleaks-CI will do a simple regex check for each line of your PR diff. Fork this project if you want to add/remove regexes.
+
+### Alternatives?
+Review the PR like a good human.
 
 
 ### How to?
