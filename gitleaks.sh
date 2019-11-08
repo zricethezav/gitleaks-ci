@@ -17,17 +17,14 @@ PRDIFF=$(curl -u $GITHUB_USERNAME:$GITHUB_API_TOKEN \
 RE=(
     # fork and add/remove whatever you want here
     "-----BEGIN PRIVATE KEY-----"
-    "-----BEGIN RSA PRIVATE KEY-----"
     "-----BEGIN DSA PRIVATE KEY-----"
     "-----BEGIN OPENSSH PRIVATE KEY-----"
     "AKIA[0-9A-Z]{16}"
-    "-----BEGIN DSA PRIVATE KEY-----"
     "AIza[0-9A-Za-z\-_]{35}"
     "\"type\": \"service_account\""
     "[0-9]+-[0-9A-Za-z_]{32}\.apps\.googleusercontent\.com"
     "ya29\.[0-9A-Za-z\-_]+"
     "rk_live_[0-9a-zA-Z]{24}"
-    "AKIA[0-9A-Z]{16}"
     "access_token\$production\$[0-9a-z]{16}\$[0-9a-f]{32}"
     "sq0csp-[0-9A-Za-z\-_]{43}"
     "[0-9]+-[0-9A-Za-z_]{32}\.apps\.googleusercontent\.com"
