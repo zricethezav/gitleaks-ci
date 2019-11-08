@@ -70,7 +70,7 @@ while read -r line; do
     for re in "${RE[@]}"; do
         # check regex
         echo "testing ${re} in $line"
-        if [[ $line =~ $re ]]; then
+        if [[ $line =~ $re ]] && [[ $line == *"+"*]]; then
             LEAKS+=($line)
             echo "Leak found in ${filename:2}. Offending line: $line"
         fi
