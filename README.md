@@ -14,7 +14,7 @@ Review the PR like a good human.
 ### How to?
 Gitleaks-CI is a single line of code placed in whatever CI service you or your organization uses.
 ```
-bash <(curl -s https://raw.githubusercontent.com/zricethezav/gitleaks-ci/master/gitleaks.sh)
+bash <(curl -s https://raw.githubusercontent.com/Zaulao/gitleaks-ci/master/gitleaks.sh)
 ```
 **You should fork this repo and use the `gitleaks.sh` script you own rather than assuming my trust.**
 
